@@ -1,209 +1,85 @@
-//// podcasts-page.js - Functionality specific to the podcasts listing page
-//
-//document.addEventListener('DOMContentLoaded', function() {
-//    // Variables for pagination
-//    const ITEMS_PER_PAGE = 6;
-//    let currentPage = 1;
-//    let filteredPodcasts = [];
-//
-//    // Elements
-//    const podcastContainer = document.getElementById('all-podcasts-container');
-//    const paginationContainer = document.getElementById('pagination-container');
-//    const searchInput = document.getElementById('podcast-search');
-//    const categoryFilter = document.getElementById('category-filter');
-//    const sortOption = document.getElementById('sort-option');
-//
-//    // Initialize page
-//    initPodcastsPage();
-//
-//    // Main initialization function
-//    async function initPodcastsPage() {
-//        if (!podcastContainer) return;
-//
-//        try {
-//            // Fetch all podcasts
-//            const podcasts = await window.podcastUtils.fetchPodcasts();
-//            filteredPodcasts = [...podcasts];
-//
-//            // Set up event listeners
-//            setupEventListeners();
-//
-//            // Initial display
-//            sortAndFilterPodcasts();
-//        } catch (error) {
-//            console.error('Failed to initialize podcasts page:', error);
-//            podcastContainer.innerHTML = '<div class="col-12 text-center"><p>Failed to load podcast episodes. Please try again later.</p></div>';
-//        }
-//    }
-//
-//    // Set up event listeners for filtering and sorting
-//    function setupEventListeners() {
-//        if (searchInput) {
-//            searchInput.addEventListener('input', debounce(() => {
-//                currentPage = 1;
-//                sortAndFilterPodcasts();
-//            }, 300));
-//        }
-//
-//        if (categoryFilter) {
-//            categoryFilter.addEventListener('change', () => {
-//                currentPage = 1;
-//                sortAndFilterPodcasts();
-//            });
-//        }
-//
-//        if (sortOption) {
-//            sortOption.addEventListener('change', () => {
-//                sortAndFilterPodcasts();
-//            });
-//        }
-//    }
-//
-//    // Filter and sort podcasts based on user selections
-//    async function sortAndFilterPodcasts() {
-//        try {
-//            const podcasts = await window.podcastUtils.fetchPodcasts();
-//
-//            // Apply search filter
-//            const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
-//
-//            // Apply category filter
-//            const categoryValue = categoryFilter ? categoryFilter.value : 'all';
-//
-//            // Filter podcasts
-//            filteredPodcasts = podcasts.filter(podcast => {
-//                const matchesSearch = podcast.title.toLowerCase().includes(searchTerm) ||
-//                                     podcast.description.toLowerCase().includes(searchTerm);
-//
-//                const matchesCategory = categoryValue === 'all' || podcast.category === categoryValue;
-//
-//                return matchesSearch && matchesCategory;
-//            });
-//
-//            // Apply sorting
-//            const sortValue = sortOption ? sortOption.value : 'newest';
-//
-//            if (sortValue === 'newest') {
-//                filteredPodcasts.sort((a, b) => new Date(b.date) - new Date(a.date));
-//            } else if (sortValue === 'oldest') {
-//                filteredPodcasts.sort((a, b) => new Date(a.date) - new Date(b.date));
-//            }
-//
-//            // Update display
-//            displayPodcasts();
-//            updatePagination();
-//
-//        } catch (error) {
-//            console.error('Error filtering podcasts:', error);
-//        }
-//    }
-//
-//    // Display current page of podcasts
-//    function displayPodcasts() {
-//        if (!podcastContainer) return;
-//
-//        const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-//        const endIndex = startIndex + ITEMS_PER_PAGE;
-//        const currentPagePodcasts = filteredPodcasts.slice(startIndex, endIndex);
-//
-//        if (currentPagePodcasts.length === 0) {
-//            podcastContainer.innerHTML = `
-//                <div class="col-12 text-center py-5">
-//                    <h3>No podcasts found</h3>
-//                    <p>Try adjusting your search or filter criteria.</p>
-//                </div>
-//            `;
-//            return;
-//        }
-//
-//        const podcastsHTML = currentPagePodcasts.map(podcast =>
-//            window.podcastUtils.createPodcastCard(podcast)
-//        ).join('');
-//
-//        podcastContainer.innerHTML = podcastsHTML;
-//    }
-//
-//    // Update pagination controls
-//    function updatePagination() {
-//        if (!paginationContainer) return;
-//
-//        const totalPages = Math.ceil(filteredPodcasts.length / ITEMS_PER_PAGE);
-//
-//        if (totalPages <= 1) {
-//            paginationContainer.innerHTML = '';
-//            return;
-//        }
-//
-//        let paginationHTML = `
-//            <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
-//                <a class="page-link" href="#" data-page="${currentPage - 1}" aria-label="Previous">
-//                    <span aria-hidden="true">&laquo;</span>
-//                </a>
-//            </li>
-//        `;
-//
-//        for (let i = 1; i <= totalPages; i++) {
-//            paginationHTML += `
-//                <li class="page-item ${i === currentPage ? 'active' : ''}">
-//                    <a class="page-link" href="#" data-page="${i}">${i}</a>
-//                </li>
-//            `;
-//        }
-//
-//        paginationHTML += `
-//            <li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
-//                <a class="page-link" href="#" data-page="${currentPage + 1}" aria-label="Next">
-//                    <span aria-hidden="true">&raquo;</span>
-//                </a>
-//            </li>
-//        `;
-//
-//        paginationContainer.innerHTML = paginationHTML;
-//
-//        // Add event listeners to pagination buttons
-//        const pageLinks = paginationContainer.querySelectorAll('.page-link');
-//        pageLinks.forEach(link => {
-//            link.addEventListener('click', (e) => {
-//                e.preventDefault();
-//                const pageNum = parseInt(link.getAttribute('data-page'));
-//                if (!isNaN(pageNum) && pageNum > 0 && pageNum <= totalPages) {
-//                    currentPage = pageNum;
-//                    displayPodcasts();
-//                    updatePagination();
-//                    window.scrollTo({top: 0, behavior: 'smooth'});
-//                }
-//            });
-//        });
-//    }
-//
-//    // Helper function to debounce search input
-//    function debounce(func, wait) {
-//        let timeout;
-//        return function() {
-//            const context = this;
-//            const args = arguments;
-//            clearTimeout(timeout);
-//            timeout = setTimeout(() => {
-//                func.apply(context, args);
-//            }, wait);
-//        };
-//    }
-//});
+//let podcastData = []; // Global variable to store podcast data
 
-// podcasts-page.js
-document.addEventListener('DOMContentLoaded', async () => {
+// Fetch podcast data from JSON file
+async function fetchPodcastData() {
     try {
         const response = await fetch('../data/podcast.json');
         const data = await response.json();
-
-        const podcastGrid = document.querySelector('#podcasts-list-section');
-        if (podcastGrid) {
-            data.podcasts.forEach(podcast => {
-                const card = createPodcastCard(podcast);
-                podcastGrid.appendChild(card);
-            });
-        }
+        podcastData = data.podcasts; // Assuming the JSON has a "podcasts" array
+        return podcastData;
     } catch (error) {
         console.error('Error loading podcasts:', error);
+        return [];
     }
+}
+
+function createPodcastCard(podcast) {
+    return `
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100 podcast-card">
+                <img src="../${podcast.thumbnail}" class="card-img-top" alt="${podcast.title}">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="badge bg-primary">${podcast.category}</span>
+
+                    </div>
+                    <h5 class="card-title">${podcast.title}</h5>
+                    <p class="card-text flex-grow-1">${truncateText(podcast.description, 50)}</p>
+                </div>
+                <div class="card-footer bg-transparent">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <small class="text-muted">Aired on - ${new Date(podcast.date).toLocaleDateString()}</small>
+                        <a href="${podcast.youtubeLink}" class="btn btn-outline-primary btn-sm">Watch Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function displayPodcasts(podcasts) {
+    const podcastGrid = document.getElementById('podcast-grid');
+    podcastGrid.innerHTML = podcasts.map(podcast => createPodcastCard(podcast)).join('');
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+    // Initial fetch and display
+    podcastData = await fetchPodcastData();
+    displayPodcasts(podcastData);
+
+    // Search functionality
+    document.getElementById('podcast-search').addEventListener('input', (e) => {
+        const searchTerm = e.target.value.toLowerCase();
+        const filteredPodcasts = podcastData.filter(podcast =>
+            podcast.title.toLowerCase().includes(searchTerm) ||
+            podcast.description.toLowerCase().includes(searchTerm)
+        );
+        displayPodcasts(filteredPodcasts);
+    });
+
+    // Category filter
+    document.getElementById('category-filter').addEventListener('change', (e) => {
+        const category = e.target.value;
+        const filteredPodcasts = category === 'all'
+            ? podcastData
+            : podcastData.filter(podcast => podcast.category === category);
+        displayPodcasts(filteredPodcasts);
+    });
+
+    // Sort functionality
+    document.getElementById('sort-option').addEventListener('change', (e) => {
+        const sortedPodcasts = [...podcastData].sort((a, b) => {
+            return e.target.value === 'newest'
+                ? new Date(b.date) - new Date(a.date)
+                : new Date(a.date) - new Date(b.date);
+        });
+        displayPodcasts(sortedPodcasts);
+    });
 });
+function truncateText(text, words) {
+    const wordArray = text.split(' ');
+    if (wordArray.length > words) {
+        return wordArray.slice(0, words).join(' ') + '...';
+    }
+    return text;
+}

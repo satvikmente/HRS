@@ -10,32 +10,32 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="../styles/styles.css">
     <!-- Favicon -->
-    <link rel="icon" href="images/favicon.ico">
+    <link rel="icon" href="../images/headrock-logo.png" type="image/png">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="../index.html">
-                <img src="images/headrock-logo.png" alt="HeadRock Show Logo" width="40" height="40" class="d-inline-block align-text-top">
-                HeadRock Show
+            <a class="navbar-brand d-flex align-items-center" href="../index.html">
+                <img src="../images/headrock-logo.png" alt="HeadRock Show Logo" width="40" height="40" class="rounded-circle bg-dark">
+                <span class="ms-2">HeadRock Show</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="../index.html">Home</a>
+                        <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="about.html">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="podcasts.html">Podcasts</a>
+                        <a class="nav-link" href="podcasts.html">Podcasts</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html">Contact</a>
@@ -44,9 +44,11 @@
             </div>
         </div>
     </nav>
+    <!--put a while line -->
+
 
     <!-- Page Header -->
-    <header class="page-header bg-dark text-white py-5 mt-5">
+    <header class="page-header text-white">
         <div class="container text-center">
             <h1 class="display-4">All Episodes</h1>
             <p class="lead">Browse our complete collection of knowledge podcasts</p>
@@ -84,43 +86,26 @@
     </section>
 
     <!-- Podcasts List Section -->
-<!--    <section class="podcasts-list-section py-5">-->
-<!--        <div class="container">-->
-<!--            <div class="row g-4" id="all-podcasts-container">-->
-<!--                &lt;!&ndash; Podcast items will be inserted here by JavaScript &ndash;&gt;-->
-<!--            </div>-->
-<!--            -->
-<!--            &lt;!&ndash; Pagination &ndash;&gt;-->
-<!--            <div class="row mt-5">-->
-<!--                <div class="col-12">-->
-<!--                    <nav aria-label="Podcast pagination">-->
-<!--                        <ul class="pagination justify-content-center" id="pagination-container">-->
-<!--                            &lt;!&ndash; Pagination will be inserted here by JavaScript &ndash;&gt;-->
-<!--                        </ul>-->
-<!--                    </nav>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </section>-->
     <section class="podcasts-grid py-5">
         <div class="container">
             <div class="row" id="podcast-grid"></div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer py-4 bg-black text-white">
+    <footer class="footer">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-4 text-lg-start mb-3 mb-lg-0">
-                    <img src="images/headrock-logo.png" alt="HeadRock Show Logo" width="30" height="30" class="d-inline-block align-text-top me-2">
-                    HeadRock Show &copy; 2025
+                    <div class="d-flex align-items-center">
+                        <img src="../images/headrock-logo.png" alt="HeadRock Show Logo" width="30" height="30" class="me-2">
+                        <span>HeadRock Show &copy; 2025</span>
+                    </div>
                 </div>
                 <div class="col-lg-4 text-lg-center mb-3 mb-lg-0">
-                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-spotify"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@HeadRockShow" class="social-link"><i class="fab fa-youtube"></i></a>
+                    <a href="https://open.spotify.com/show/0QrUHwykuc8BdGKto3qQvy" class="social-link"><i class="fab fa-spotify"></i></a>
+                    <a href="https://www.x.com/headrockshow/" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/headrockshow/" class="social-link"><i class="fab fa-instagram"></i></a>
                 </div>
                 <div class="col-lg-4 text-lg-end">
                     <a href="privacy.html" class="text-decoration-none me-3 text-white-50">Privacy Policy</a>

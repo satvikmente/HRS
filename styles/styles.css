@@ -12,7 +12,11 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: var(--text-color);
-    padding-top: 76px; /* Adjust for fixed navbar */
+    padding-top: 0px; /* Adjust for fixed navbar */
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Typography */
@@ -56,13 +60,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Navbar */
-/* Navbar */
 .navbar {
     z-index: 9999;
     position: fixed;
     top: 0;
     width: 100%;
-
+    height: 56px;
+    margin-bottom: 0;
+    border-bottom: 0;
+}
 
 .navbar-brand {
     font-weight: 700;
@@ -192,13 +198,20 @@ h1, h2, h3, h4, h5, h6 {
     background-color: rgba(61, 90, 241, 0.1);
     border-radius: 50%;
 }
-
+.footer {
+    flex-shrink: 0;
+    margin-top: auto;
+    padding: 1.5rem 0;
+    background-color: #000;
+    color: #fff;
+}
 /* Social Links */
 .social-link {
     font-size: 1.5rem;
     color: white;
     margin: 0 0.75rem;
     transition: color 0.3s ease;
+    flex: 1 0 auto;
 }
 
 .social-link:hover {
@@ -217,10 +230,10 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Page Header */
 .page-header {
-    background: linear-gradient(rgba(33, 37, 41, 0.85), rgba(33, 37, 41, 0.85)), url('../images/page-header-bg.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    margin-top: 56px;
+    margin-bottom: 0;
+    padding: 40px 0;
+    background: linear-gradient(rgba(33, 37, 41, 0.75), rgba(33, 37, 41, 0.75));
 }
 
 /* Media Queries */

@@ -1,16 +1,11 @@
 document.addEventListener('DOMContentLoaded', async () => {
     try {
-        const response = await fetch('../data/podcast.json');
+        const response = await fetch('./data/podcast.json'); // Fixed path
         const data = await response.json();
-        const featuredPodcasts = data.podcasts.slice(0, 3); // Show first 3 podcasts
-
-        podcastContainer = document.getElementById('podcast-container');
+        const podcastContainer = document.getElementById('podcast-container');
 
         if (podcastContainer) {
-            // Clear existing content
             podcastContainer.innerHTML = '';
-
-            // Display only first 3 podcasts on home page
             const displayPodcasts = data.podcasts.slice(0, 3);
 
             displayPodcasts.forEach(podcast => {
@@ -34,75 +29,75 @@ document.addEventListener('DOMContentLoaded', async () => {
     } catch (error) {
         console.error('Error loading podcasts:', error);
     }
-
-    // Form submissions
-    const newsletterForm = document.querySelector('.newsletter-form');
-    if (newsletterForm) {
-        newsletterForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const emailInput = this.querySelector('input[type="email"]');
-            const email = emailInput.value.trim();
-
-            if (email) {
-                console.log('Newsletter subscription for:', email);
-
-                const formParent = newsletterForm.parentElement;
-                const successMessage = document.createElement('div');
-                successMessage.className = 'alert alert-success mt-3';
-                successMessage.innerHTML = 'Thank you for subscribing to our newsletter!';
-
-                formParent.appendChild(successMessage);
-
-                emailInput.value = '';
-
-                setTimeout(() => {
-                    successMessage.remove();
-                }, 3000);
-            }
-        });
-    }
-
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            if (this.getAttribute('href') === '#') return;
-
-            e.preventDefault();
-
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-
-            if (targetElement) {
-                const headerOffset = 80;
-                const elementPosition = targetElement.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    // Initialize animations for elements
-    const animateOnScroll = function() {
-        const animatedElements = document.querySelectorAll('.animate-on-scroll');
-
-        animatedElements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            const elementVisible = 150;
-
-            if (elementTop < window.innerHeight - elementVisible) {
-                element.classList.add('fade-in');
-            }
-        });
-    };
-
-    window.addEventListener('scroll', animateOnScroll);
-    animateOnScroll();
 });
+// Form submissions
+const newsletterForm = document.querySelector('.newsletter-form');
+if (newsletterForm) {
+    newsletterForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const emailInput = this.querySelector('input[type="email"]');
+        const email = emailInput.value.trim();
+
+        if (email) {
+            console.log('Newsletter subscription for:', email);
+
+            const formParent = newsletterForm.parentElement;
+            const successMessage = document.createElement('div');
+            successMessage.className = 'alert alert-success mt-3';
+            successMessage.innerHTML = 'Thank you for subscribing to our newsletter!';
+
+            formParent.appendChild(successMessage);
+
+            emailInput.value = '';
+
+            setTimeout(() => {
+                successMessage.remove();
+            }, 3000);
+        }
+    });
+}
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        if (this.getAttribute('href') === '#') return;
+
+        e.preventDefault();
+
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+
+        if (targetElement) {
+            const headerOffset = 80;
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
+    });
+}
+
+// Initialize animations for elements
+const animateOnScroll = function() {
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+
+    animatedElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+
+        if (elementTop < window.innerHeight - elementVisible) {
+            element.classList.add('fade-in');
+        }
+    });
+};
+
+window.addEventListener('scroll', animateOnScroll);
+animateOnScroll();
+
 
 function createPodcastCard(podcast) {
     const card = document.createElement('div');
