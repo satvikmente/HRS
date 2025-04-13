@@ -79,7 +79,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             });
         }
     });
-}
+});
 
 // Initialize animations for elements
 const animateOnScroll = function() {
