@@ -1,0 +1,263 @@
+/* General Styles */
+:root {
+    --primary-color: #3d5af1;
+    --primary-dark: #2a3eb1;
+    --secondary-color: #ff5722;
+    --dark-color: #212529;
+    --light-color: #f8f9fa;
+    --text-color: #333333;
+    --text-muted: #6c757d;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    padding-top: 76px; /* Adjust for fixed navbar */
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+}
+
+.section-heading {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+/* Dividers */
+.divider {
+    max-width: 6.25rem;
+    border-width: 0.2rem;
+    border-color: var(--primary-color);
+    margin: 1.5rem auto;  /* Centers the divider */
+    opacity: 1;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Navbar */
+/* Navbar */
+.navbar {
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+    color: white;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(rgba(33, 37, 41, 0.75), rgba(33, 37, 41, 0.75)), url('images/hero-bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    margin-top: 0; /* Remove any top margin */
+    padding-top: 76px; /* Match navbar height */
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 2; /* Higher than the overlay */
+}
+
+.hero-section h1,
+.hero-section p,
+.hero-section a {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    color: white;
+}
+/* Podcast Cards */
+.podcast-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.podcast-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.podcast-card .card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.podcast-card .category-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.podcast-card .date {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.podcast-card .btn-watch {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: white;
+}
+
+.podcast-card .btn-watch:hover {
+    background-color: #e64a19;
+    border-color: #e64a19;
+}
+
+/* Team Cards */
+.team-card {
+    transition: transform 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+}
+
+.team-card img {
+    height: 300px;
+    object-fit: cover;
+}
+
+.team-card .social-icon {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin: 0 0.5rem;
+}
+
+/* Process Section */
+.process-icon {
+    height: 100px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    background-color: rgba(61, 90, 241, 0.1);
+    border-radius: 50%;
+}
+
+/* Social Links */
+.social-link {
+    font-size: 1.5rem;
+    color: white;
+    margin: 0 0.75rem;
+    transition: color 0.3s ease;
+}
+
+.social-link:hover {
+    color: #3d5af1;
+}
+
+/* Pagination */
+.pagination .page-item.active .page-link {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.pagination .page-link {
+    color: var(--primary-color);
+}
+
+/* Page Header */
+.page-header {
+    background: linear-gradient(rgba(33, 37, 41, 0.85), rgba(33, 37, 41, 0.85)), url('../images/page-header-bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .hero-section {
+        padding-top: 7rem;
+        padding-bottom: 7rem;
+    }
+
+    .section-heading {
+        font-size: 2rem;
+    }
+}
+
+/* Newsletter Form */
+.newsletter-form .form-control {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.newsletter-form .btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}

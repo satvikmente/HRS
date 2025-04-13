@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HeadRock Show - Insightful conversations across diverse sectors with expert perspectives">
+    <title>HeadRock Show - Knowledge Podcasts</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/styles.css">
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="images/headrock-logo.png" alt="HeadRock Show Logo" width="40" height="40" class="rounded-circle bg-dark">
+                <span class="ms-2">HeadRock Show</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/podcasts.html">Podcasts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+   <header class="hero-section text-black text-center">
+       <div class="container position-relative" style="z-index: 1;">
+           <div class="row justify-content-center">
+               <div class="col-lg-8">
+                   <h1 class="display-4 fw-bold mb-4">Expand Your Knowledge Horizons</h1>
+                   <p class="lead mb-5">Welcome to HeadRock Show, your source for insightful conversations across diverse sectors. We dive deep into current trends and research analysis, bringing expert perspectives directly to you.</p>
+                   <a href="#latest-podcasts" class="btn btn-primary btn-lg">Explore Podcasts</a>
+               </div>
+           </div>
+       </div>
+   </header>
+
+    <!-- About Section -->
+    <section class="about-section py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-heading">Our Vision</h2>
+                    <hr class="divider my-4">
+                    <p class="lead text-muted">
+                        Our mission is to empower viewers like you with valuable knowledge and fresh insights,
+                        helping you stay informed and inspired in an ever-evolving world.
+                    </p>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="fas fa-brain fa-3x mb-3 text-primary"></i>
+                            <h3 class="card-title">Expert Knowledge</h3>
+                            <p class="card-text">We bring together thought leaders, innovators, and specialists from various fields to share their expertise.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="fas fa-lightbulb fa-3x mb-3 text-primary"></i>
+                            <h3 class="card-title">Fresh Insights</h3>
+                            <p class="card-text">Our conversations reveal cutting-edge trends and analysis that keep you ahead of the curve.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="fas fa-network-wired fa-3x mb-3 text-primary"></i>
+                            <h3 class="card-title">Diverse Topics</h3>
+                            <p class="card-text">From business to crypto, cybersecurity to technology, we cover the subjects that matter most.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Podcasts Section -->
+    <section id="latest-podcasts" class="podcasts-section py-5 bg-light">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-heading">Latest Episodes</h2>
+                    <hr class="divider my-4">
+                    <p class="text-muted mb-5">Tune in to our most recent conversations with industry experts</p>
+                </div>
+            </div>
+            <div class="row g-4" id="podcast-container">
+                <!-- Podcast items will be inserted here by JavaScript -->
+            </div>
+            <div class="row mt-5">
+                <div class="col-12 text-center">
+                    <a href="pages/podcasts.html" class="btn btn-outline-primary btn-lg">View All Episodes</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-heading">Meet The Team</h2>
+                    <hr class="divider my-4">
+                    <p class="text-muted mb-5">The passionate individuals behind HeadRock Show</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card team-card h-100">
+                        <img src="images/team/jignesh.jpg" class="card-img-top" alt="Team Member">
+                        <div class="card-body text-center">
+                            <h3 class="card-title">Jignesh T</h3>
+                            <p class="card-subtitle mb-2 text-muted">Host & Entrepreneur</p>
+                            <p class="card-text">With 10+ years in digital media, Jignesh brings deep industry knowledge and a passion for uncovering insights through meaningful conversations.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card team-card h-100">
+                        <img src="images/team/murali.jpg" class="card-img-top" alt="Team Member">
+                        <div class="card-body text-center">
+                            <h3 class="card-title">Murali Mastaru</h3>
+                            <p class="card-subtitle mb-2 text-muted">Content Director & Host</p>
+                            <p class="card-text">Sarah curates our expert roster and research topics, ensuring HeadRock delivers cutting-edge content across diverse knowledge sectors.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Process Section -->
+    <section class="process-section py-5 bg-light">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-heading">How We Create</h2>
+                    <hr class="divider my-4">
+                    <p class="text-muted mb-5">Our approach to bringing you valuable insights</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <div class="process-step text-center">
+                        <div class="process-icon">
+                            <i class="fas fa-search fa-3x text-primary"></i>
+                        </div>
+                        <h4 class="mt-4">Research</h4>
+                        <p>We identify trending topics and the experts leading the conversation.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="process-step text-center">
+                        <div class="process-icon">
+                            <i class="fas fa-users fa-3x text-primary"></i>
+                        </div>
+                        <h4 class="mt-4">Connect</h4>
+                        <p>We engage with thought leaders who offer unique perspectives.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="process-step text-center">
+                        <div class="process-icon">
+                            <i class="fas fa-microphone-alt fa-3x text-primary"></i>
+                        </div>
+                        <h4 class="mt-4">Record</h4>
+                        <p>We create engaging conversations that dive deep into each topic.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="process-step text-center">
+                        <div class="process-icon">
+                            <i class="fas fa-share-alt fa-3x text-primary"></i>
+                        </div>
+                        <h4 class="mt-4">Share</h4>
+                        <p>We deliver polished episodes weekly to our growing audience.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section py-5 bg-dark text-white">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <h2 class="mb-4">Stay Updated</h2>
+                    <p class="mb-4">Subscribe to our newsletter to receive notifications about new episodes and exclusive content.</p>
+                    <form class="newsletter-form">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Your email address" aria-label="Email address" required>
+                            <button class="btn btn-primary" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-4 bg-black text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 text-lg-start mb-3 mb-lg-0">
+                    <div class="d-flex align-items-center">
+                        <img src="images/headrock-logo.png" alt="HeadRock Show Logo" width="30" height="30" class="me-2">
+                        <span>HeadRock Show &copy; 2025</span>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-lg-center mb-3 mb-lg-0">
+                    <a href="https://www.youtube.com/@HeadRockShow" class="social-link"><i class="fab fa-youtube"></i></a>
+                    <a href="https://open.spotify.com/show/0QrUHwykuc8BdGKto3qQvy" class="social-link"><i class="fab fa-spotify"></i></a>
+                    <a href="https://www.x.com/headrockshow/" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/headrockshow/" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a href="privacy.html" class="text-decoration-none me-3 text-white-50">Privacy Policy</a>
+                    <a href="terms.html" class="text-decoration-none text-white-50">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/podcasts.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

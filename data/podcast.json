@@ -1,0 +1,49 @@
+{
+  "podcasts": [
+    {
+      "id": "podcast-001",
+      "title": "Future of Electric Vehicles & Battery Tech in India | BAAS | Bajaj to Mahindra",
+      "description": "In this high-voltage episode, we sit down with Raja Gayam, co-founder of Biliti Electric (formerly Gayam Motor Works), the Hyderabad-based EV startup that’s caught the attention of global giants like Uber, BigBasket, Amazon, and IKEA. Raja shares the inspiring journey of three Hyderabad boys from IIIT-H and Central University who built cutting-edge battery tech with IoT at its core — powering electric three-wheelers and bikes across the world. He also opens up about how T-Hub played a pivotal role in shaping their early success and helped them crack product-market fit.",
+      "thumbnail": "images/podcasts/electric.jpg",
+      "youtubeLink": "https://www.youtube.com/watch?v=hnbuAytcCrI",
+      "date": "2025-04-13",
+      "category": "Electric Vehicles"
+    },
+    {
+      "id": "podcast-002",
+      "title": "Masterclass on Foreign Education | Trump vs Jobs| Country, College, Course",
+      "description": "Deep into the realities of studying abroad, career opportunities, and the challenges faced by students. Our guest, Mr. Mohamed Abdullah, CEO of Conduira, shares valuable insights on choosing the right country and university, acing SOPs and essays, and handling immigration challenges. If you're considering to study in the U.S. or Europe",
+      "thumbnail": "images/podcasts/USA.jpg",
+      "youtubeLink": "https://youtube.com/watch?v=YsFN3BQVfrU",
+      "date": "2025-04-09",
+      "category": "Education"
+    },
+    {
+      "id": "podcast-003",
+      "title": "All About Crypto: BitCoin | Blockchain | Web 3 | NFT",
+      "description": "In this insightful conversation with Rajesh Dhuddu, PwC Partner & Forbes 50 in Blockchain, we dive deep into the world of cryptocurrencies, NFTs, mining, meme coins, dark web usage, and blockchain careers.",
+      "thumbnail": "images/podcasts/crypto.jpg",
+      "youtubeLink": "https://www.youtube.com/watch?v=BjbU-5k7KRM&t",
+      "date": "2025-04-13",
+      "category": "Cryptocurrency"
+    },
+    {
+      "id": "podcast-004",
+      "title": "Future of Indian Electric Vehicles & Battery Tech",
+      "description": "In this high-voltage episode, we sit down with Raja Gayam, co-founder of Biliti Electric (formerly Gayam Motor Works), the Hyderabad-based EV startup that’s caught the attention of global giants like Uber, BigBasket, Amazon, and IKEA. Raja shares the inspiring journey of three Hyderabad boys from IIIT-H and Central University who built cutting-edge battery tech with IoT at its core — powering electric three-wheelers and bikes across the world. He also opens up about how T-Hub played a pivotal role in shaping their early success and helped them crack product-market fit.",
+      "thumbnail": "images/podcasts/electric.jpg",
+      "youtubeLink": "https://www.youtube.com/watch?v=hnbuAytcCrI",
+      "date": "2025-04-13",
+      "category": "Electric Vehicles"
+    },
+    {
+      "id": "podcast-005",
+      "title": "Future of Indian Electric Vehicles & Battery Tech",
+      "description": "In this high-voltage episode, we sit down with Raja Gayam, co-founder of Biliti Electric (formerly Gayam Motor Works), the Hyderabad-based EV startup that’s caught the attention of global giants like Uber, BigBasket, Amazon, and IKEA. Raja shares the inspiring journey of three Hyderabad boys from IIIT-H and Central University who built cutting-edge battery tech with IoT at its core — powering electric three-wheelers and bikes across the world. He also opens up about how T-Hub played a pivotal role in shaping their early success and helped them crack product-market fit.",
+      "thumbnail": "images/podcasts/electric.jpg",
+      "youtubeLink": "https://www.youtube.com/watch?v=hnbuAytcCrI",
+      "date": "2025-04-13",
+      "category": "Electric Vehicles"
+    }
+    ]
+}
