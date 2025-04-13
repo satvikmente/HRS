@@ -3,7 +3,7 @@
 // Function to fetch podcast data from the JSON file
 async function fetchPodcasts() {
     try {
-        const response = await fetch('../data/podcast.json');
+        const response = await fetch('data/podcast.json');
         if (!response.ok) {
             throw new Error('Failed to fetch podcast data');
         }

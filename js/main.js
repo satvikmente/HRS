@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', async () => {
     try {
-        const response = await fetch('../data/podcast.json');
+        const response = await fetch('data/podcast.json');
         const data = await response.json();
         const podcastContainer = document.getElementById('podcast-container');
 
