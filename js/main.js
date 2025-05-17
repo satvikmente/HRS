@@ -33,27 +33,57 @@ document.addEventListener('DOMContentLoaded', async () => {
 // Form submissions
 const newsletterForm = document.querySelector('.newsletter-form');
 if (newsletterForm) {
-    newsletterForm.addEventListener('submit', function(e) {
+    newsletterForm.addEventListener('submit', async function(e) {
         e.preventDefault();
 
         const emailInput = this.querySelector('input[type="email"]');
         const email = emailInput.value.trim();
 
         if (email) {
-            console.log('Newsletter subscription for:', email);
+            // Create form data to send
+            const formData = new FormData();
+            formData.append('email', email);
 
-            const formParent = newsletterForm.parentElement;
-            const successMessage = document.createElement('div');
-            successMessage.className = 'alert alert-success mt-3';
-            successMessage.innerHTML = 'Thank you for subscribing to our newsletter!';
+            try {
+                // Send POST request to server
+                const response = await fetch('http://localhost:3000/save-subscriber', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({ email: email })
+                });
 
-            formParent.appendChild(successMessage);
+                if (response.ok) {
+                    // Show success message
+                    const formParent = newsletterForm.parentElement;
+                    const successMessage = document.createElement('div');
+                    successMessage.className = 'alert alert-success mt-3';
+                    successMessage.innerHTML = 'Thank you for subscribing to our newsletter!';
 
-            emailInput.value = '';
+                    formParent.appendChild(successMessage);
+                    emailInput.value = '';
 
-            setTimeout(() => {
-                successMessage.remove();
-            }, 3000);
+                    setTimeout(() => {
+                        successMessage.remove();
+                    }, 3000);
+                } else {
+                    throw new Error('Failed to subscribe');
+                }
+            } catch (error) {
+                // Show error message
+                const formParent = newsletterForm.parentElement;
+                const errorMessage = document.createElement('div');
+                errorMessage.className = 'alert alert-danger mt-3';
+                errorMessage.innerHTML = 'Sorry, subscription failed. Please try again later.';
+
+                formParent.appendChild(errorMessage);
+
+                setTimeout(() => {
+                    errorMessage.remove();
+                }, 3000);
+            }
         }
     });
 }
@@ -79,6 +109,34 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             });
         }
     });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const scrollToAnchor = localStorage.getItem('scrollToAnchor');
+
+    if (scrollToAnchor) {
+        // Clear the stored anchor
+        localStorage.removeItem('scrollToAnchor');
+
+        // Get the target element
+        const element = document.getElementById(scrollToAnchor);
+
+        if (element) {
+            // Get navbar height
+            const navbarHeight = document.querySelector('.navbar').offsetHeight;
+
+            // Small delay to ensure proper scroll
+            setTimeout(() => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }, 100);
+        }
+    }
 });
 
 // Initialize animations for elements

@@ -308,7 +308,10 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 500;
 }
 
-
+.small-text {
+    font-size: 0.5rem;
+    color: rgba(0, 0, 0, 0.6);
+}
 
 /* Platform-specific colors */
 .social-media-link.youtube:hover { color: #FF0000; }

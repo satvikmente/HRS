@@ -78,6 +78,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+
+
 // Export functions to be used by other scripts
 window.podcastUtils = {
     fetchPodcasts,

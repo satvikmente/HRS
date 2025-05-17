@@ -76,6 +76,28 @@ document.addEventListener('DOMContentLoaded', async () => {
         displayPodcasts(sortedPodcasts);
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const connectLink = document.querySelector('a[href="../index.html#connect"]');
+    const aboutLink = document.querySelector('a[href="../index.html#about"]');
+
+    if (connectLink) {
+        connectLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            localStorage.setItem('scrollToAnchor', 'connect');
+            window.location.href = '../index.html';
+        });
+    }
+
+    if (aboutLink) {
+        aboutLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            localStorage.setItem('scrollToAnchor', 'about');
+            window.location.href = '../index.html';
+        });
+    }
+});
+
 function truncateText(text, words) {
     const wordArray = text.split(' ');
     if (wordArray.length > words) {
